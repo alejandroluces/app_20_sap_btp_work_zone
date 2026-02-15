@@ -1,0 +1,7 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="sap.btp.app20.controller.View20">
+    <Page id="page" title="{i18n>title}">
+    <content><Button xmlns="sap.m" text="hello 20" id="button0"/>
+        <ToggleButton xmlns="sap.m" text="activar" id="button1"/>
+    </content>
+    </Page>
+</mvc:View>
