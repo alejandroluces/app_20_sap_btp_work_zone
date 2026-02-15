@@ -1,7 +1,162 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="sap.btp.app20.controller.View20">
-    <Page id="page" title="{i18n>title}">
-    <content><Button xmlns="sap.m" text="hello 20" id="button0"/>
-        <ToggleButton xmlns="sap.m" text="activar" id="button1"/>
-    </content>
+<mvc:View
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    controllerName="sap.btp.app20.controller.View20"
+    displayBlock="true">
+    
+    <Page id="page" title="{i18n>title}" showNavButton="false">
+        <content>
+            <!-- Header Section -->
+            <VBox class="sapUiSmallMargin">
+                <Title text="{i18n>surveyTitle}" level="H1" class="sapUiTinyMarginBottom"/>
+                <Text text="{i18n>surveyDescription}" class="sapUiTinyMarginBottom"/>
+                <MessageStrip
+                    text="{i18n>surveyInstructions}"
+                    type="Information"
+                    showIcon="true"
+                    class="sapUiSmallMarginBottom"/>
+            </VBox>
+
+            <!-- Vendor Selection -->
+            <VBox class="sapUiMediumMargin">
+                <Label text="{i18n>vendorLabel}" required="true" labelFor="vendorSelect"/>
+                <Select
+                    id="vendorSelect"
+                    width="100%"
+                    selectedKey="{/selectedVendor}"
+                    items="{/vendors}"
+                    change="onVendorChange">
+                    <core:Item key="{vendorId}" text="{vendorName}"/>
+                </Select>
+            </VBox>
+
+            <!-- Survey Questions Form -->
+            <Panel
+                id="surveyPanel"
+                headerText="{i18n>questionsHeader}"
+                expandable="true"
+                expanded="true"
+                class="sapUiMediumMargin">
+                
+                <form:SimpleForm
+                    id="surveyForm"
+                    editable="true"
+                    layout="ResponsiveGridLayout"
+                    labelSpanXL="4"
+                    labelSpanL="4"
+                    labelSpanM="12"
+                    labelSpanS="12"
+                    emptySpanXL="0"
+                    emptySpanL="0"
+                    emptySpanM="0"
+                    emptySpanS="0"
+                    columnsXL="1"
+                    columnsL="1"
+                    columnsM="1">
+                    
+                    <form:content>
+                        <!-- Question 1: Quality -->
+                        <Label text="{i18n>question1}" required="true"/>
+                        <RatingIndicator
+                            id="rating1"
+                            maxValue="5"
+                            value="{/answers/question1}"
+                            iconSize="2rem"
+                            tooltip="{i18n>ratingTooltip}"/>
+                        <Text text="{i18n>ratingScale}" class="sapUiTinyMarginTop"/>
+
+                        <!-- Question 2: Delivery Time -->
+                        <Label text="{i18n>question2}" required="true"/>
+                        <RatingIndicator
+                            id="rating2"
+                            maxValue="5"
+                            value="{/answers/question2}"
+                            iconSize="2rem"
+                            tooltip="{i18n>ratingTooltip}"/>
+                        <Text text="{i18n>ratingScale}" class="sapUiTinyMarginTop"/>
+
+                        <!-- Question 3: Price Competitiveness -->
+                        <Label text="{i18n>question3}" required="true"/>
+                        <RatingIndicator
+                            id="rating3"
+                            maxValue="5"
+                            value="{/answers/question3}"
+                            iconSize="2rem"
+                            tooltip="{i18n>ratingTooltip}"/>
+                        <Text text="{i18n>ratingScale}" class="sapUiTinyMarginTop"/>
+
+                        <!-- Question 4: Customer Service -->
+                        <Label text="{i18n>question4}" required="true"/>
+                        <RatingIndicator
+                            id="rating4"
+                            maxValue="5"
+                            value="{/answers/question4}"
+                            iconSize="2rem"
+                            tooltip="{i18n>ratingTooltip}"/>
+                        <Text text="{i18n>ratingScale}" class="sapUiTinyMarginTop"/>
+
+                        <!-- Question 5: Documentation & Compliance -->
+                        <Label text="{i18n>question5}" required="true"/>
+                        <RatingIndicator
+                            id="rating5"
+                            maxValue="5"
+                            value="{/answers/question5}"
+                            iconSize="2rem"
+                            tooltip="{i18n>ratingTooltip}"/>
+                        <Text text="{i18n>ratingScale}" class="sapUiTinyMarginTop"/>
+
+                        <!-- Additional Comments -->
+                        <Label text="{i18n>commentsLabel}"/>
+                        <TextArea
+                            id="commentsArea"
+                            value="{/comments}"
+                            rows="4"
+                            maxLength="500"
+                            showExceededText="true"
+                            placeholder="{i18n>commentsPlaceholder}"/>
+                    </form:content>
+                </form:SimpleForm>
+            </Panel>
+
+            <!-- Results Display (Initially Hidden) -->
+            <Panel
+                id="resultsPanel"
+                headerText="{i18n>resultsHeader}"
+                visible="{/showResults}"
+                class="sapUiMediumMargin">
+                <VBox class="sapUiSmallMargin">
+                    <ObjectStatus
+                        text="{i18n>averageScore}"
+                        state="{/resultState}"
+                        icon="sap-icon://performance"/>
+                    <ProgressIndicator
+                        percentValue="{/averagePercentage}"
+                        displayValue="{/averageScore}"
+                        state="{/resultState}"
+                        class="sapUiTinyMarginTop"/>
+                    <Text text="{/resultMessage}" class="sapUiSmallMarginTop"/>
+                </VBox>
+            </Panel>
+        </content>
+
+        <!-- Footer Buttons -->
+        <footer>
+            <OverflowToolbar>
+                <ToolbarSpacer/>
+                <Button
+                    id="submitBtn"
+                    text="{i18n>submitButton}"
+                    type="Emphasized"
+                    icon="sap-icon://save"
+                    press="onSubmitSurvey"/>
+                <Button
+                    id="resetBtn"
+                    text="{i18n>resetButton}"
+                    icon="sap-icon://refresh"
+                    press="onResetSurvey"/>
+            </OverflowToolbar>
+        </footer>
     </Page>
 </mvc:View>
