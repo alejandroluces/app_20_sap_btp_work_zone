@@ -16,9 +16,21 @@
       "destination": "ui5"
     },
     {
-      "source": "^(.*)$",
-      "target": "$1",
+      "source": "^/sapbtpapp20/(.*)$",
+      "target": "/sapbtpapp20/$1",
       "service": "html5-apps-repo-rt",
+      "authenticationType": "xsuaa"
+    },
+    {
+      "source": "^/index.html$",
+      "target": "/index.html",
+      "localDir": "resources",
+      "authenticationType": "xsuaa"
+    },
+    {
+      "source": "^/$",
+      "target": "/index.html",
+      "localDir": "resources",
       "authenticationType": "xsuaa"
     }
   ],
