@@ -4,11 +4,22 @@
   "description": "Security profile of called application",
   "scopes": [
     {
+      "name": "$XSAPPNAME.User",
+      "description": "User"
+    },
+    {
       "name": "uaa.user",
       "description": "UAA"
     }
   ],
   "role-templates": [
+    {
+      "name": "User",
+      "description": "User",
+      "scope-references": [
+        "$XSAPPNAME.User"
+      ]
+    },
     {
       "name": "Token_Exchange",
       "description": "UAA",
@@ -16,5 +27,15 @@
         "uaa.user"
       ]
     }
-  ]
+  ],
+  "oauth2-configuration": {
+    "grant-types": [
+      "authorization_code"
+    ],
+    "redirect-uris": [
+      "https://*.cfapps.us10-001.hana.ondemand.com/**",
+      "https://*.hana.ondemand.com/**",
+      "https://*.applicationstudio.cloud.sap/**"
+    ]
+  }
 }
