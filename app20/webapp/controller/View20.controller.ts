@@ -126,7 +126,7 @@ export default class View20 extends Controller {
      */
     public onResetSurvey(): void {
         MessageBox.confirm(this._getText("confirmReset"), {
-            onClose: (sAction: string) => {
+            onClose: (sAction: string | null) => {
                 if (sAction === MessageBox.Action.OK) {
                     const oModel = this.getView()?.getModel() as JSONModel;
                     oModel.setProperty("/selectedVendor", "");

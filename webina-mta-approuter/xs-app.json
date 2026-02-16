@@ -1,5 +1,35 @@
 {
-  "authenticationMethod": "none",
-  "routes": [],
-  "welcomeFile": "/sapbtpapp20"
+  "welcomeFile": "/cp.portal",
+  "authenticationMethod": "route",
+  "sessionTimeout": 60,
+  "routes": [
+    {
+      "source": "^/sapbtpapp20/(.*)$",
+      "target": "$1",
+      "localDir": "resources/sapbtpapp20",
+      "authenticationType": "xsuaa",
+      "csrfProtection": false
+    },
+    {
+      "source": "^/resources/(.*)$",
+      "target": "/resources/$1",
+      "authenticationType": "none",
+      "destination": "ui5"
+    },
+    {
+      "source": "^/test-resources/(.*)$",
+      "target": "/test-resources/$1",
+      "authenticationType": "none",
+      "destination": "ui5"
+    },
+    {
+      "source": "^(.*)$",
+      "target": "$1",
+      "service": "html5-apps-repo-rt",
+      "authenticationType": "xsuaa"
+    }
+  ],
+  "logout": {
+    "logoutEndpoint": "/do/logout"
+  }
 }
