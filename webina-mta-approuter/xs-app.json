@@ -1,5 +1,5 @@
 {
-  "welcomeFile": "/cp.portal",
+  "welcomeFile": "/index.html",
   "authenticationMethod": "route",
   "sessionTimeout": 60,
   "routes": [
