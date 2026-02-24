@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+specVersion: '4.0'
+metadata:
+  name: sap.btp.app21
+type: application
+builder:
+  resources:
+    excludes:
+      - "/test/**"
+      - "/localService/**"
+  customTasks:
+  - name: ui5-task-zipper
+    afterTask: generateCachebusterInfo
+    configuration:
+      archiveName: sapbtpapp21
+  - name: ui5-tooling-transpile-task
+    afterTask: replaceVersion
+    configuration:
+      debug: true
+      transformModulesToUI5:
+        overridesToOverride: true

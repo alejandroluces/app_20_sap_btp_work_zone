@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ES2022",
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "allowJs": true,
+    "strict": true,
+    "strictPropertyInitialization": false,
+    "rootDir": "./",
+    "baseUrl": "./",
+    "paths": {
+      "sap/btp/app21/*": [
+        "./webapp/*"
+      ]
+    },
+    "types": [
+      "@sapui5/types"
+    ]
+  },
+  "include": [
+    "./webapp/**/*"
+  ]
+}

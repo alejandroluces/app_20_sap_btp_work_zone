@@ -31,9 +31,23 @@ modules:
       - sapbtpapp20.zip
       name: sapbtpapp20
       target-path: resources/
+    - artifacts:
+      - sapbtpapp21.zip
+      name: sapbtpapp21
+      target-path: resources/
 - name: sapbtpapp20
   type: html5
   path: app20
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: sapbtpapp21
+  type: html5
+  path: app21
   build-parameters:
     build-result: dist
     builder: custom

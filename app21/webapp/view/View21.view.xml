@@ -1,0 +1,288 @@
+<mvc:View
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:table="sap.ui.table"
+    controllerName="sap.btp.app21.controller.View21"
+    displayBlock="true">
+    
+    <Page id="page" title="{i18n>title}" showNavButton="false">
+        <content>
+            <!-- Header Section -->
+            <VBox class="sapUiSmallMargin">
+                <Title text="{i18n>mainTitle}" level="H1" class="sapUiTinyMarginBottom"/>
+                <Text text="{i18n>mainDescription}" class="sapUiTinyMarginBottom"/>
+                <MessageStrip
+                    text="{i18n>instructions}"
+                    type="Information"
+                    showIcon="true"
+                    class="sapUiSmallMarginBottom"/>
+            </VBox>
+
+            <!-- Purchase Order Form -->
+            <Panel
+                id="poFormPanel"
+                headerText="{i18n>formHeader}"
+                expandable="true"
+                expanded="true"
+                class="sapUiMediumMargin">
+                
+                <form:SimpleForm
+                    id="poForm"
+                    editable="true"
+                    layout="ResponsiveGridLayout"
+                    labelSpanXL="4"
+                    labelSpanL="4"
+                    labelSpanM="12"
+                    labelSpanS="12"
+                    emptySpanXL="0"
+                    emptySpanL="0"
+                    emptySpanM="0"
+                    emptySpanS="0"
+                    columnsXL="2"
+                    columnsL="2"
+                    columnsM="1">
+                    
+                    <form:content>
+                        <!-- Basic Information -->
+                        <core:Title text="{i18n>basicInfoTitle}"/>
+                        
+                        <Label text="{i18n>poNumberLabel}" required="true"/>
+                        <Input
+                            id="poNumber"
+                            value="{/poData/poNumber}"
+                            placeholder="{i18n>poNumberPlaceholder}"
+                            maxLength="10"/>
+                        
+                        <Label text="{i18n>vendorLabel}" required="true"/>
+                        <Select
+                            id="vendorSelect"
+                            selectedKey="{/poData/vendorId}"
+                            items="{/vendors}"
+                            change="onVendorChange">
+                            <core:Item key="{vendorId}" text="{vendorName}"/>
+                        </Select>
+                        
+                        <Label text="{i18n>poDateLabel}" required="true"/>
+                        <DatePicker
+                            id="poDate"
+                            value="{/poData/poDate}"
+                            displayFormat="dd/MM/yyyy"
+                            valueFormat="yyyy-MM-dd"/>
+                        
+                        <Label text="{i18n>deliveryDateLabel}" required="true"/>
+                        <DatePicker
+                            id="deliveryDate"
+                            value="{/poData/deliveryDate}"
+                            displayFormat="dd/MM/yyyy"
+                            valueFormat="yyyy-MM-dd"
+                            minDate="{/poData/poDate}"/>
+
+                        <!-- Delivery Information -->
+                        <core:Title text="{i18n>deliveryInfoTitle}"/>
+                        
+                        <Label text="{i18n>deliveryAddressLabel}" required="true"/>
+                        <TextArea
+                            id="deliveryAddress"
+                            value="{/poData/deliveryAddress}"
+                            rows="2"
+                            maxLength="200"
+                            placeholder="{i18n>deliveryAddressPlaceholder}"/>
+                        
+                        <Label text="{i18n>contactPersonLabel}"/>
+                        <Input
+                            id="contactPerson"
+                            value="{/poData/contactPerson}"
+                            placeholder="{i18n>contactPersonPlaceholder}"/>
+                        
+                        <Label text="{i18n>paymentTermsLabel}" required="true"/>
+                        <Select
+                            id="paymentTerms"
+                            selectedKey="{/poData/paymentTerms}"
+                            items="{/paymentTermsList}">
+                            <core:Item key="{key}" text="{text}"/>
+                        </Select>
+                        
+                        <Label text="{i18n>priorityLabel}" required="true"/>
+                        <Select
+                            id="priority"
+                            selectedKey="{/poData/priority}"
+                            items="{/priorityList}">
+                            <core:Item key="{key}" text="{text}"/>
+                        </Select>
+                        
+                        <!-- Notes -->
+                        <core:Title text="{i18n>notesTitle}"/>
+                        
+                        <Label text="{i18n>notesLabel}"/>
+                        <TextArea
+                            id="notes"
+                            value="{/poData/notes}"
+                            rows="3"
+                            maxLength="500"
+                            placeholder="{i18n>notesPlaceholder}"/>
+                    </form:content>
+                </form:SimpleForm>
+            </Panel>
+
+            <!-- Items Table -->
+            <Panel
+                id="itemsPanel"
+                headerText="{i18n>itemsHeader}"
+                expandable="true"
+                expanded="true"
+                class="sapUiMediumMargin">
+                
+                <Toolbar>
+                    <Title text="{i18n>itemsSubtitle}" level="H4"/>
+                    <ToolbarSpacer/>
+                    <Button
+                        text="{i18n>addItemButton}"
+                        icon="sap-icon://add"
+                        press="onAddItem"/>
+                </Toolbar>
+
+                <Table
+                    id="itemsTable"
+                    items="{/poData/items}"
+                    mode="Delete"
+                    delete="onDeleteItem"
+                    class="sapUiSmallMarginTop">
+                    <columns>
+                        <Column width="8em">
+                            <Text text="{i18n>itemNumberCol}"/>
+                        </Column>
+                        <Column minScreenWidth="Tablet" demandPopin="true">
+                            <Text text="{i18n>descriptionCol}"/>
+                        </Column>
+                        <Column minScreenWidth="Tablet" demandPopin="true" hAlign="End">
+                            <Text text="{i18n>quantityCol}"/>
+                        </Column>
+                        <Column minScreenWidth="Tablet" demandPopin="true" hAlign="End">
+                            <Text text="{i18n>unitPriceCol}"/>
+                        </Column>
+                        <Column minScreenWidth="Desktop" demandPopin="true" hAlign="End">
+                            <Text text="{i18n>totalCol}"/>
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <Input value="{itemNumber}" maxLength="5"/>
+                                <Input value="{description}" maxLength="100"/>
+                                <Input
+                                    value="{quantity}"
+                                    type="Number"
+                                    change="onItemChange"/>
+                                <Input
+                                    value="{unitPrice}"
+                                    type="Number"
+                                    change="onItemChange"/>
+                                <ObjectNumber
+                                    number="{
+                                        path: 'total',
+                                        type: 'sap.ui.model.type.Float',
+                                        formatOptions: {
+                                            minFractionDigits: 2,
+                                            maxFractionDigits: 2
+                                        }
+                                    }"
+                                    unit="USD"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+
+                <!-- Total Summary -->
+                <Bar class="sapUiSmallMarginTop">
+                    <contentLeft>
+                        <Label text="{i18n>subtotalLabel}" design="Bold"/>
+                    </contentLeft>
+                    <contentRight>
+                        <ObjectNumber
+                            number="{
+                                path: '/poData/subtotal',
+                                type: 'sap.ui.model.type.Float',
+                                formatOptions: {
+                                    minFractionDigits: 2,
+                                    maxFractionDigits: 2
+                                }
+                            }"
+                            unit="USD"
+                            emphasized="true"/>
+                    </contentRight>
+                </Bar>
+                <Bar>
+                    <contentLeft>
+                        <Label text="{i18n>taxLabel}"/>
+                    </contentLeft>
+                    <contentRight>
+                        <ObjectNumber
+                            number="{
+                                path: '/poData/tax',
+                                type: 'sap.ui.model.type.Float',
+                                formatOptions: {
+                                    minFractionDigits: 2,
+                                    maxFractionDigits: 2
+                                }
+                            }"
+                            unit="USD"/>
+                    </contentRight>
+                </Bar>
+                <Bar>
+                    <contentLeft>
+                        <Label text="{i18n>totalLabel}" design="Bold"/>
+                    </contentLeft>
+                    <contentRight>
+                        <ObjectNumber
+                            number="{
+                                path: '/poData/total',
+                                type: 'sap.ui.model.type.Float',
+                                formatOptions: {
+                                    minFractionDigits: 2,
+                                    maxFractionDigits: 2
+                                }
+                            }"
+                            unit="USD"
+                            emphasized="true"
+                            state="Success"/>
+                    </contentRight>
+                </Bar>
+            </Panel>
+
+            <!-- Summary Panel (Shows after creation) -->
+            <Panel
+                id="summaryPanel"
+                headerText="{i18n>summaryHeader}"
+                visible="{/showSummary}"
+                class="sapUiMediumMargin">
+                <VBox class="sapUiSmallMargin">
+                    <ObjectStatus
+                        text="{/statusText}"
+                        state="{/statusState}"
+                        icon="sap-icon://sys-enter-2"/>
+                    <Text text="{/summaryMessage}" class="sapUiSmallMarginTop"/>
+                </VBox>
+            </Panel>
+        </content>
+
+        <!-- Footer Buttons -->
+        <footer>
+            <OverflowToolbar>
+                <ToolbarSpacer/>
+                <Button
+                    id="createBtn"
+                    text="{i18n>createButton}"
+                    type="Emphasized"
+                    icon="sap-icon://create"
+                    press="onCreatePurchaseOrder"/>
+                <Button
+                    id="clearBtn"
+                    text="{i18n>clearButton}"
+                    icon="sap-icon://clear-all"
+                    press="onClearForm"/>
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>

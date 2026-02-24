@@ -22,6 +22,12 @@
       "authenticationType": "xsuaa"
     },
     {
+      "source": "^/sapbtpapp21/(.*)$",
+      "target": "/sapbtpapp21/$1",
+      "service": "html5-apps-repo-rt",
+      "authenticationType": "xsuaa"
+    },
+    {
       "source": "^/index.html$",
       "target": "/index.html",
       "localDir": "resources",

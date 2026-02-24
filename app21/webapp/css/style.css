@@ -1,0 +1,43 @@
+/* Custom CSS for Purchase Orders App */
+
+.sapUiSizeCompact .sapMPanel {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sapUiSizeCompact .sapMTitle {
+    color: #0854A0;
+}
+
+/* Form styling */
+.sapUiSizeCompact .sapUiForm .sapUiFormTitle {
+    font-weight: bold;
+    color: #32363A;
+}
+
+/* Table styling */
+.sapMListTbl {
+    border: 1px solid #E5E5E5;
+}
+
+/* Highlight totals */
+.sapMObjectNumber {
+    font-weight: bold;
+}
+
+/* Summary panel */
+#summaryPanel {
+    background-color: #F5F9FC;
+    border-left: 4px solid #0854A0;
+}
+
+/* Button spacing */
+.sapMBtn {
+    margin-left: 0.5rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .sapUiSizeCompact .sapMPanel {
+        margin: 0.5rem;
+    }
+}

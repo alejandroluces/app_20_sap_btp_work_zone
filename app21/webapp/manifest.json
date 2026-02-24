@@ -1,0 +1,112 @@
+{
+  "_version": "1.81.0",
+  "sap.app": {
+    "id": "sap.btp.app21",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.20.2",
+      "toolsId": "app21-purchase-orders"
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "purchaseorder-create": {
+          "semanticObject": "PurchaseOrder",
+          "action": "create",
+          "title": "{{purchaseorder-create.flpTitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.144.1",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.ui.table": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "sap.btp.app21.i18n.i18n"
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "sap.btp.app21.view",
+        "async": true,
+        "viewPath": "sap.btp.app21.view"
+      },
+      "routes": [
+        {
+          "name": "RouteView21",
+          "pattern": ":?query:",
+          "target": [
+            "TargetView21"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetView21": {
+          "id": "View21",
+          "name": "View21"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "sap.btp.app21.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  }
+}
