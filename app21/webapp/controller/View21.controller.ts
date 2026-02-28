@@ -43,6 +43,8 @@ export default class View21 extends Controller {
                 vendorId: "V001",
                 poDate: this._formatDate(new Date()),
                 deliveryDate: this._formatDate(this._addDays(new Date(), 30)),
+                poDate: new Date(),
+                deliveryDate: this._addDays(new Date(), 30),
                 deliveryAddress: "Av. Providencia 1234, Oficina 501\nProvidencia, Santiago\nRegión Metropolitana, Chile",
                 contactPerson: "Juan Pérez - Jefe de Compras",
                 paymentTerms: "NET30",
