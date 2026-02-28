@@ -10,7 +10,7 @@ import formatter from "../model/formatter";
 export default class View21 extends Controller {
 
     public formatter = formatter;
-    private itemCounter: number = 1;
+    private itemCounter: number = 5; // Start after sample items (0001-0004)
 
     /**
      * Controller initialization
@@ -39,19 +39,48 @@ export default class View21 extends Controller {
                 { key: "URGENT", text: "Urgente" }
             ],
             poData: {
-                poNumber: "",
-                vendorId: "",
+                poNumber: "PO-2024-001",
+                vendorId: "V001",
                 poDate: this._formatDate(new Date()),
                 deliveryDate: this._formatDate(this._addDays(new Date(), 30)),
-                deliveryAddress: "",
-                contactPerson: "",
+                deliveryAddress: "Av. Providencia 1234, Oficina 501\nProvidencia, Santiago\nRegión Metropolitana, Chile",
+                contactPerson: "Juan Pérez - Jefe de Compras",
                 paymentTerms: "NET30",
-                priority: "MEDIUM",
-                notes: "",
-                items: [],
-                subtotal: 0,
-                tax: 0,
-                total: 0
+                priority: "HIGH",
+                notes: "Entrega urgente para proyecto Q1 2024. Coordinar con bodega central.",
+                items: [
+                    {
+                        itemNumber: "0001",
+                        description: "Laptop Dell XPS 15 - Intel i7, 16GB RAM, 512GB SSD",
+                        quantity: 5,
+                        unitPrice: 1500.00,
+                        total: 7500.00
+                    },
+                    {
+                        itemNumber: "0002",
+                        description: "Monitor LG 27 pulgadas 4K UHD con altura ajustable",
+                        quantity: 10,
+                        unitPrice: 450.00,
+                        total: 4500.00
+                    },
+                    {
+                        itemNumber: "0003",
+                        description: "Teclado mecánico Logitech MX Keys - Retroiluminado",
+                        quantity: 8,
+                        unitPrice: 120.00,
+                        total: 960.00
+                    },
+                    {
+                        itemNumber: "0004",
+                        description: "Mouse inalámbrico Logitech MX Master 3S",
+                        quantity: 8,
+                        unitPrice: 85.00,
+                        total: 680.00
+                    }
+                ],
+                subtotal: 13640.00,
+                tax: 2591.60,
+                total: 16231.60
             },
             showSummary: false,
             statusText: "",
