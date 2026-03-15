@@ -90,7 +90,6 @@
       "": {
         "dataSource": "mainService",
         "preload": true,
-<<<<<<< HEAD
         "settings": {
           "defaultBindingMode": "TwoWay",
           "defaultCountMode": "Inline",
@@ -99,9 +98,6 @@
             "sap-value-list": "none"
           }
         }
-=======
-        "settings": {}
->>>>>>> 0065a8980aa9033c1792102de4c836a9f6c688bb
       }
     },
     "resources": {
