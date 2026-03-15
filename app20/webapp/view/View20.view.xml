@@ -26,9 +26,12 @@
                     id="vendorSelect"
                     width="100%"
                     selectedKey="{/selectedVendor}"
-                    items="{/vendors}"
+                    items="{
+                        path: '/Provider',
+                        sorter: { path: 'Nombre' }
+                    }"
                     change="onVendorChange">
-                    <core:Item key="{vendorId}" text="{vendorName}"/>
+                    <core:Item key="{IdProveedor}" text="{Nombre} - {Pais}"/>
                 </Select>
             </VBox>
 
