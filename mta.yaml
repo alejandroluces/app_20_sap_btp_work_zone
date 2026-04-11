@@ -2,10 +2,39 @@ _schema-version: "3.2"
 ID: webina-mta
 version: 0.0.1
 modules:
+- name: cap-backend
+  type: nodejs
+  path: cap-backend
+  parameters:
+    buildpack: nodejs_buildpack
+    disk-quota: 512M
+    memory: 256M
+  provides:
+  - name: srv-api
+    properties:
+      srv-url: ${default-url}
+  requires:
+  - name: hana-hdi
+  - name: uaa_webina-mta
+
+- name: cap-db-deployer
+  type: hdb
+  path: cap-backend/gen/db
+  parameters:
+    buildpack: nodejs_buildpack
+  requires:
+  - name: hana-hdi
+
 - name: webina-mta-approuter
   type: approuter.nodejs
   path: webina-mta-approuter
   requires:
+  - name: srv-api
+    group: destinations
+    properties:
+      name: srv-api
+      url: ~{srv-url}
+      forwardAuthToken: true
   - name: webina-mta_html_repo_runtime
   - name: uaa_webina-mta
   - name: webina-mta-destination-service
@@ -42,6 +71,12 @@ modules:
     - npm run build:cf
     supported-platforms: []
 resources:
+- name: hana-hdi
+  type: com.sap.xs.hdi-container
+  parameters:
+    service: hana
+    service-plan: hdi-shared
+
 - name: webina-mta_html_repo_runtime
   type: org.cloudfoundry.managed-service
   parameters:

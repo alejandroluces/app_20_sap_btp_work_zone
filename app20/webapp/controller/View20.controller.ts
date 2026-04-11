@@ -169,17 +169,36 @@ export default class View20 extends Controller {
         const oPayload = {
             vendorId: oData.selectedVendor,
             evaluator: oData.evaluator,
-            evaluationDate: oData.evaluationDate,
-            scores: oData.answers,
-            comments: oData.comments,
-            averageScore: oData.averageScore
+            evaluationDate: new Date(oData.evaluationDate).toISOString(),
+            question1Score: oData.answers.question1,
+            question2Score: oData.answers.question2,
+            question3Score: oData.answers.question3,
+            question4Score: oData.answers.question4,
+            question5Score: oData.answers.question5,
+            averageScore: parseFloat(oData.averageScore),
+            comments: oData.comments
         };
 
-        // Log to console (in real app, this would be an OData/REST call)
-        console.log("Survey Payload (would be sent to backend):", JSON.stringify(oPayload, null, 2));
-        
-        // Show toast to indicate data would be saved
-        MessageToast.show(this._getText("dataSaved"));
+        // Send POST request to our new CAP OData Backend
+        fetch("/api/VendorEvaluations", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(oPayload)
+        })
+        .then(response => {
+            if (response.ok) {
+                MessageToast.show(this._getText("dataSaved"));
+            } else {
+                console.error("Error saving data:", response.statusText);
+                MessageBox.error("Error al guardar en la base de datos HANA.");
+            }
+        })
+        .catch(error => {
+            console.error("Fetch error:", error);
+            MessageBox.error("Error de red al conectar con HANA.");
+        });
     }
 
     /**
