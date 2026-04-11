@@ -3,6 +3,8 @@ import JSONModel from "sap/ui/model/json/JSONModel";
 import MessageBox from "sap/m/MessageBox";
 import MessageToast from "sap/m/MessageToast";
 import formatter from "../model/formatter";
+import Fragment from "sap/ui/core/Fragment";
+import Dialog from "sap/m/Dialog";
 
 /**
  * @namespace sap.btp.app20.controller
@@ -10,6 +12,7 @@ import formatter from "../model/formatter";
 export default class View20 extends Controller {
 
     public formatter = formatter;
+    private _oEvaluationsDialog: Dialog | null = null;
 
     /**
      * Controller initialization
@@ -199,6 +202,60 @@ export default class View20 extends Controller {
             console.error("Fetch error:", error);
             MessageBox.error("Error de red al conectar con HANA.");
         });
+    }
+
+    /**
+     * View Evaluations Dialog
+     */
+    public onViewEvaluations(): void {
+        const oView = this.getView();
+        if (!oView) return;
+
+        if (!this._oEvaluationsDialog) {
+            Fragment.load({
+                id: oView.getId(),
+                name: "sap.btp.app20.view.EvaluationsDialog",
+                controller: this
+            }).then((oDialog: any) => {
+                this._oEvaluationsDialog = oDialog;
+                oView.addDependent(this._oEvaluationsDialog);
+                this._loadEvaluationsData();
+                this._oEvaluationsDialog.open();
+            });
+        } else {
+            this._loadEvaluationsData();
+            this._oEvaluationsDialog.open();
+        }
+    }
+
+    public onCloseEvaluationsDialog(): void {
+        this._oEvaluationsDialog?.close();
+    }
+
+    public onRefreshEvaluations(): void {
+        this._loadEvaluationsData();
+    }
+
+    private _loadEvaluationsData(): void {
+        const oView = this.getView();
+        if (!oView) return;
+        
+        oView.setBusy(true);
+        fetch("/api/VendorEvaluations")
+            .then(response => {
+                if (!response.ok) throw new Error("Failed to fetch evaluations");
+                return response.json();
+            })
+            .then(data => {
+                const oModel = new JSONModel(data);
+                oView.setModel(oModel, "evaluationsModel");
+                oView.setBusy(false);
+            })
+            .catch(error => {
+                console.error("Error fetching evaluations:", error);
+                MessageToast.show("Error al cargar las evaluaciones");
+                oView.setBusy(false);
+            });
     }
 
     /**

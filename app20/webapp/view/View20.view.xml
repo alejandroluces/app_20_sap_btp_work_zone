@@ -147,6 +147,11 @@
         <!-- Footer Buttons -->
         <footer>
             <OverflowToolbar>
+                <Button
+                    id="viewEvaluationsBtn"
+                    text="{i18n>viewEvaluationsButton}"
+                    icon="sap-icon://table-view"
+                    press="onViewEvaluations"/>
                 <ToolbarSpacer/>
                 <Button
                     id="submitBtn"

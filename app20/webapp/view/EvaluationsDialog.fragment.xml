@@ -1,0 +1,58 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Dialog
+        id="evaluationsDialog"
+        title="{i18n>evaluationsDialogTitle}"
+        contentWidth="900px"
+        contentHeight="500px"
+        resizable="true"
+        draggable="true">
+        <content>
+            <Table
+                id="evaluationsTable"
+                items="{
+                    path: 'evaluationsModel>/value'
+                }"
+                growing="true"
+                growingThreshold="20"
+                fixedLayout="false"
+                alternateRowColors="true">
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <Title text="{evaluationsModel>/value/length} Evaluaciones Encontradas" level="H2"/>
+                        <ToolbarSpacer/>
+                        <Button icon="sap-icon://refresh" press="onRefreshEvaluations" tooltip="Actualizar"/>
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column><Text text="Proveedor" /></Column>
+                    <Column><Text text="Evaluador" /></Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true"><Text text="Fecha" /></Column>
+                    <Column hAlign="Center"><Text text="Promedio" /></Column>
+                    <Column minScreenWidth="Desktop" demandPopin="true"><Text text="Comentarios" /></Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{evaluationsModel>vendorId}" />
+                            <Text text="{evaluationsModel>evaluator}" />
+                            <Text text="{
+                                path: 'evaluationsModel>evaluationDate',
+                                type: 'sap.ui.model.type.DateTime',
+                                formatOptions: { style: 'short' }
+                            }" />
+                            <ObjectStatus 
+                                text="{evaluationsModel>averageScore}/5" 
+                                state="{= ${evaluationsModel>averageScore} >= 3.5 ? 'Success' : (${evaluationsModel>averageScore} >= 2.5 ? 'Warning' : 'Error') }"/>
+                            <Text text="{evaluationsModel>comments}" wrapping="true" maxLines="2"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+        <endButton>
+            <Button text="{i18n>closeButton}" press="onCloseEvaluationsDialog" />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>
