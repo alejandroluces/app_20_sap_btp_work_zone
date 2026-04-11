@@ -1,0 +1,172 @@
+{
+  "namespace": "sap.btp.app20",
+  "definitions": {
+    "sap.btp.app20.VendorEvaluations": {
+      "kind": "entity",
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.UUID"
+        },
+        "vendorId": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "evaluator": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "evaluationDate": {
+          "type": "cds.DateTime"
+        },
+        "question1Score": {
+          "type": "cds.Integer"
+        },
+        "question2Score": {
+          "type": "cds.Integer"
+        },
+        "question3Score": {
+          "type": "cds.Integer"
+        },
+        "question4Score": {
+          "type": "cds.Integer"
+        },
+        "question5Score": {
+          "type": "cds.Integer"
+        },
+        "averageScore": {
+          "type": "cds.Decimal",
+          "precision": 3,
+          "scale": 2
+        },
+        "comments": {
+          "type": "cds.String",
+          "length": 500
+        },
+        "createdAt": {
+          "@cds.on.insert": {
+            "=": "$now"
+          },
+          "type": "cds.Timestamp"
+        }
+      }
+    },
+    "EvaluationService": {
+      "@source": "srv/service.cds",
+      "kind": "service"
+    },
+    "EvaluationService.VendorEvaluations": {
+      "kind": "entity",
+      "projection": {
+        "from": {
+          "ref": [
+            "sap.btp.app20.VendorEvaluations"
+          ]
+        }
+      },
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.UUID"
+        },
+        "vendorId": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "evaluator": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "evaluationDate": {
+          "type": "cds.DateTime"
+        },
+        "question1Score": {
+          "type": "cds.Integer"
+        },
+        "question2Score": {
+          "type": "cds.Integer"
+        },
+        "question3Score": {
+          "type": "cds.Integer"
+        },
+        "question4Score": {
+          "type": "cds.Integer"
+        },
+        "question5Score": {
+          "type": "cds.Integer"
+        },
+        "averageScore": {
+          "type": "cds.Decimal",
+          "precision": 3,
+          "scale": 2
+        },
+        "comments": {
+          "type": "cds.String",
+          "length": 500
+        },
+        "createdAt": {
+          "@cds.on.insert": {
+            "=": "$now"
+          },
+          "type": "cds.Timestamp"
+        }
+      }
+    },
+    "cds.outbox.Messages": {
+      "kind": "entity",
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.UUID"
+        },
+        "timestamp": {
+          "type": "cds.Timestamp"
+        },
+        "target": {
+          "type": "cds.String"
+        },
+        "msg": {
+          "type": "cds.LargeString"
+        },
+        "attempts": {
+          "type": "cds.Integer",
+          "default": {
+            "val": 0
+          }
+        },
+        "partition": {
+          "type": "cds.Integer",
+          "default": {
+            "val": 0
+          }
+        },
+        "lastError": {
+          "type": "cds.LargeString"
+        },
+        "lastAttemptTimestamp": {
+          "@cds.on.update": {
+            "=": "$now"
+          },
+          "type": "cds.Timestamp"
+        },
+        "status": {
+          "type": "cds.String",
+          "length": 23
+        },
+        "task": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "appid": {
+          "type": "cds.String",
+          "length": 255
+        }
+      }
+    }
+  },
+  "meta": {
+    "creator": "CDS Compiler v6.6.0",
+    "flavor": "inferred"
+  },
+  "$version": "2.0"
+}

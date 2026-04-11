@@ -1,0 +1,14 @@
+VIEW EvaluationService_VendorEvaluations AS SELECT
+  VendorEvaluations_0.ID,
+  VendorEvaluations_0.vendorId,
+  VendorEvaluations_0.evaluator,
+  VendorEvaluations_0.evaluationDate,
+  VendorEvaluations_0.question1Score,
+  VendorEvaluations_0.question2Score,
+  VendorEvaluations_0.question3Score,
+  VendorEvaluations_0.question4Score,
+  VendorEvaluations_0.question5Score,
+  VendorEvaluations_0.averageScore,
+  VendorEvaluations_0.comments,
+  VendorEvaluations_0.createdAt
+FROM sap_btp_app20_VendorEvaluations AS VendorEvaluations_0

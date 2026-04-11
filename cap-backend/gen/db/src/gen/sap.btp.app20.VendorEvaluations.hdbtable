@@ -1,0 +1,15 @@
+COLUMN TABLE sap_btp_app20_VendorEvaluations (
+  ID NVARCHAR(36) NOT NULL,
+  vendorId NVARCHAR(50),
+  evaluator NVARCHAR(100),
+  evaluationDate SECONDDATE,
+  question1Score INTEGER,
+  question2Score INTEGER,
+  question3Score INTEGER,
+  question4Score INTEGER,
+  question5Score INTEGER,
+  averageScore DECIMAL(3, 2),
+  comments NVARCHAR(500),
+  createdAt TIMESTAMP,
+  PRIMARY KEY(ID)
+)
