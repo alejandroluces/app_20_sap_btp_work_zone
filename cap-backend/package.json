@@ -8,6 +8,8 @@
   "dependencies": {
     "@cap-js/hana": "^1",
     "@sap/cds": "^8",
+    "@sap/xsenv": "^4",
+    "@sap/xssec": "^4",
     "express": "^4"
   },
   "devDependencies": {
