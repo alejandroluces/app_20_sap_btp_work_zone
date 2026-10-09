@@ -42,15 +42,16 @@
             <uxap:subSections>
               <uxap:ObjectPageSubSection>
                 <uxap:blocks>
-      <VBox class="cvSection">
+      <VBox class="cvSection generalInfo">
         <Text text="{cv>/about}" class="sectionIntro" />
-        <l:Grid defaultSpan="XL4 L4 M6 S12" hSpacing="1" vSpacing="1" class="skillGrid" content="{cv>/skills}">
+        <Text text="{cv>/aboutAutomation}" class="sectionIntro sapUiSmallMarginTop" />
+        <VBox class="skillGrid" items="{cv>/skills}">
           <VBox class="skillCard">
             <core:Icon src="{cv>icon}" size="1.5rem" class="skillIcon" />
             <Title text="{cv>title}" level="H3" wrapping="true" />
             <Text text="{cv>text}" />
           </VBox>
-        </l:Grid>
+        </VBox>
       </VBox>
 
                 </uxap:blocks>

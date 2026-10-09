@@ -14,6 +14,12 @@ html, body, #appMount, .sapUiComponentContainer, .sapUiComponentContainer > div 
 .skillGrid.sapUiRespGrid, .projectGrid.sapUiRespGrid, .educationGrid.sapUiRespGrid { padding:0; margin-top:1rem; }
 .skillCard, .projectCard, .educationCard { padding:1.25rem; border:1px solid var(--sapGroup_ContentBorderColor); background:var(--sapGroup_ContentBackground); border-radius:var(--sapElement_BorderCornerRadius); box-sizing:border-box; height:100%; }
 .skillGrid > div, .projectGrid > div, .educationGrid > div { display:flex; }
+.generalInfo .sectionIntro.sapMText { max-width:none; }
+.skillGrid.sapMVBox { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); grid-auto-rows:1fr; gap:1rem; margin-top:1rem; width:100%; }
+.skillGrid.sapMVBox > .sapMFlexItem { min-width:0; width:100%; }
+.skillGrid .skillCard { width:100%; height:auto; flex:1; min-width:0; }
+@media (max-width:1023px) { .skillGrid.sapMVBox { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:600px) { .skillGrid.sapMVBox { grid-template-columns:minmax(0,1fr); } }
 .skillCard .sapMTitle, .projectCard .sapMTitle, .educationCard .sapMTitle { margin-bottom:.65rem; }
 .skillCard .sapMText, .projectCard .sapMText, .educationCard .sapMText { line-height:1.6; }
 .skillIcon { color:var(--sapContent_IconColor); margin-bottom:1rem; }
@@ -61,5 +67,6 @@ html, body, #appMount, .sapUiComponentContainer, .sapUiComponentContainer > div 
   .sapUxAPObjectPageSection { margin:0 !important; }
   .experienceList .sapMLIB, .skillCard, .projectCard, .educationCard { break-inside:avoid; }
   .skillGrid > div, .projectGrid > div, .educationGrid > div { width:100% !important; margin:0 0 .5rem !important; }
+  .skillGrid.sapMVBox { display:block; }
   .sapUxAPObjectPageSubSection { padding:0 !important; }
 }
