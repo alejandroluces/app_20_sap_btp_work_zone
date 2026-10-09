@@ -35,6 +35,14 @@ sap.ui.define([
         MessageToast.show("Puedes seleccionar y copiar el correo que aparece en pantalla.");
       }
     },
+    onDownloadCV: function () {
+      const link = document.createElement("a");
+      link.href = sap.ui.require.toUrl("aluces/cv/documents/CV-Alejandro-Luces.pdf");
+      link.download = "CV A.LUCES CL 09.2026.pdf";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+    },
     onPrint: function () {
       if (this._printSnapshot) { return; }
       // Print the full CV, even when the screen has a search filter or collapsed panels.

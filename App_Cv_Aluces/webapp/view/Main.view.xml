@@ -25,7 +25,8 @@
             </uxap:heading>
             <uxap:actions>
               <Button text="Contactar" type="Emphasized" icon="sap-icon://email" press=".onEmail" />
-              <Button text="Imprimir / Guardar PDF" type="Transparent" icon="sap-icon://print" press=".onPrint" />
+              <Button text="Imprimir" type="Transparent" icon="sap-icon://print" press=".onPrint" />
+              <Button text="Descargar CV en PDF" type="Transparent" icon="sap-icon://download" press=".onDownloadCV" />
             </uxap:actions>
           </uxap:ObjectPageDynamicHeaderTitle>
         </uxap:headerTitle>
@@ -33,7 +34,7 @@
           <FlexBox wrap="Wrap" class="headerFacets">
             <VBox><Label text="Ubicación" /><Text text="{cv>/location}" /></VBox>
             <VBox><Label text="Correo electrónico" /><Link text="{cv>/email}" href="{= 'mailto:' + ${cv>/email} }" wrapping="true" /></VBox>
-            <VBox><Label text="Experiencia SAP" /><ObjectStatus text="Desde 2016" /></VBox>
+            <VBox><Label text="Experiencia SAP" /><ObjectStatus text="Desde 2019" /></VBox>
             <VBox><Label text="Actualización del CV" /><Text text="{cv>/updated}" /></VBox>
           </FlexBox>
         </uxap:headerContent>

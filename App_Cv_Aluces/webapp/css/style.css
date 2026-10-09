@@ -4,6 +4,7 @@ html, body, #appMount, .sapUiComponentContainer, .sapUiComponentContainer > div 
 .cvShell .sapMTitle, .cvShell .sapUiIcon { color:var(--sapShell_TextColor); }
 .shellSubtitle.sapMText { color:var(--sapContent_LabelColor); margin-left:1rem; }
 .profileHeading { padding:.5rem 0; }
+.profileHeading > .sapMFlexItem:last-child { min-width:0; flex:1; }
 .headerFacets { gap:1.5rem 3rem; }
 .headerFacets > .sapMFlexItem { min-width:10rem; }
 .headerFacets .sapMLabel { margin-bottom:.4rem; }
@@ -11,6 +12,11 @@ html, body, #appMount, .sapUiComponentContainer, .sapUiComponentContainer > div 
 .certificationTitle.sapMText { font-weight:600; }
 .credentialId.sapMText { color:var(--sapContent_LabelColor); font-size:var(--sapFontSmallSize); overflow-wrap:anywhere; }
 .sectionIntro.sapMText { line-height:1.6; max-width:75rem; }
+/* Justify prose only; keep labels, dates and technology lists easy to scan. */
+.cvApp .sectionIntro.sapMText, .cvApp .jobSummary.sapMText,
+.cvApp .detailsPanel .sapMText, .cvApp .projectDescription.sapMText {
+  text-align:justify !important; text-align-last:start; hyphens:auto; overflow-wrap:break-word;
+}
 .skillGrid.sapUiRespGrid, .projectGrid.sapUiRespGrid, .educationGrid.sapUiRespGrid { padding:0; margin-top:1rem; }
 .skillCard, .projectCard, .educationCard { padding:1.25rem; border:1px solid var(--sapGroup_ContentBorderColor); background:var(--sapGroup_ContentBackground); border-radius:var(--sapElement_BorderCornerRadius); box-sizing:border-box; height:100%; }
 .skillGrid > div, .projectGrid > div, .educationGrid > div { display:flex; }
@@ -49,10 +55,23 @@ html, body, #appMount, .sapUiComponentContainer, .sapUiComponentContainer > div 
 @media (max-width:600px) {
   .cvShell.sapMTB { padding:0 1rem; }
   .shellSubtitle { display:none; }
-  .profileHeading .sapMTitle { font-size:var(--sapFontHeader3Size); }
-  .headerFacets { gap:1rem; }
-  .experienceItem { padding:1rem; gap:.65rem; }
+  .profileHeading { width:100%; align-items:flex-start; }
+  .profileHeading .sapFAvatar { width:3rem; height:3rem; min-width:3rem; font-size:1.25rem; }
+  .profileHeading .sapMTitle { font-size:1.25rem; line-height:1.35; }
+  .cvApp .sapFDynamicPageTitleMainHeading { min-width:0; }
+  .headerFacets { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; width:100%; }
+  .headerFacets > .sapMFlexItem { min-width:0; }
+  .headerFacets > .sapMFlexItem:nth-child(2) { grid-column:1 / -1; grid-row:2; }
+  .headerFacets .sapMLnk { overflow-wrap:anywhere; }
+  .skillCard, .projectCard, .educationCard { padding:1rem; width:100%; }
+  .experienceItem { padding:1rem; gap:.65rem; flex-direction:column; }
+  .experienceBody { width:100%; }
+  .experienceTools > .sapMFlexItem { min-width:0; width:100%; }
   .experienceTools .sapMSF { max-width:100%; }
+  .detailsPanel .sapMPanelHdr { font-size:.875rem; }
+  .detailsPanel .sapMPanelContent { padding:.75rem 0; }
+  /* The section already names the table; leave room for its source link. */
+  .certificationsTable .sapMTB .sapMTitle { display:none; }
 }
 @media print {
   @page { size:A4; margin:14mm; }

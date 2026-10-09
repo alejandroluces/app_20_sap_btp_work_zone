@@ -26,7 +26,7 @@ No ejecutes `npx fiori run` para esta app: la previsualización utiliza directam
 
 ## Desplegar en BTP Trial con Cloud Foundry
 
-La aplicación está configurada para acceso público, sin inicio de sesión. El contenido incluye nombre, ciudad, experiencia y correo profesional. No se incluye el Word original, dirección exacta, teléfono ni situación migratoria. Revisa el contenido antes de publicarlo.
+La aplicación está configurada para acceso público, sin inicio de sesión. La página incluye nombre, ciudad, experiencia y correo profesional. La descarga ofrece el PDF original proporcionado por el titular, con todo su contenido, sin modificaciones.
 
 Prerrequisitos: entorno Cloud Foundry habilitado, organización y espacio con cuota suficiente (256 MB de memoria para esta app), CF CLI y una sesión iniciada en la región correcta. Elige **una** de las dos rutas de despliegue.
 
@@ -75,7 +75,9 @@ El descriptor SAPUI5 contiene además el intent `AlejandroLucesCV-display` para 
 - `webapp/css/style.css`: colores, adaptación móvil e impresión.
 - `webapp/controller/Main.controller.js`: navegación, búsqueda, correo e impresión.
 
-**Imprimir / Guardar PDF** abre el diálogo del navegador con todas las experiencias y detalles, incluso cuando hay una búsqueda activa. Selecciona “Guardar como PDF”. Al cerrar el diálogo, se restaura el filtro y las secciones abiertas. No se distribuye el documento Word original.
+**Imprimir** abre el diálogo del navegador con todas las experiencias y detalles, incluso cuando hay una búsqueda activa. Al cerrar el diálogo, se restaura el filtro y las secciones abiertas.
+
+**Descargar CV en PDF** descarga el documento original `CV A.LUCES CL 09.2026.pdf`, almacenado en `webapp/documents/CV-Alejandro-Luces.pdf`. No genera un PDF de la página. Para actualizar la descarga, sustituye ese archivo y vuelve a compilar y desplegar.
 
 Los enlaces de credenciales son los indicados en el CV; su disponibilidad externa no está garantizada. Los proyectos se describen sin enlaces a repositorios porque el documento no los aporta.
 
