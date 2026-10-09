@@ -1,0 +1,35 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "aluces.cv",
+    "type": "application",
+    "title": "App_Cv_Aluces",
+    "description": "Currículum profesional de Alejandro Luces González",
+    "applicationVersion": { "version": "1.0.0" },
+    "crossNavigation": {
+      "inbounds": {
+        "cv-display": {
+          "semanticObject": "AlejandroLucesCV",
+          "action": "display",
+          "title": "Alejandro Luces · CV",
+          "subTitle": "SAP MM · BTP · Integración",
+          "icon": "sap-icon://employee",
+          "signature": { "parameters": {}, "additionalParameters": "allowed" }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "deviceTypes": { "desktop": true, "tablet": true, "phone": true }
+  },
+  "sap.ui5": {
+    "dependencies": { "minUI5Version": "1.144.1", "libs": { "sap.m": {}, "sap.ui.core": {}, "sap.ui.layout": {}, "sap.uxap": {} } },
+    "contentDensities": { "compact": true, "cozy": true },
+    "rootView": { "viewName": "aluces.cv.view.Main", "type": "XML", "id": "main", "async": true },
+    "models": {
+      "cv": { "type": "sap.ui.model.json.JSONModel", "uri": "model/cv.json" }
+    },
+    "resources": { "css": [{ "uri": "css/style.css" }] }
+  }
+}

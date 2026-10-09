@@ -1,0 +1,159 @@
+<mvc:View controllerName="aluces.cv.controller.Main" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:uxap="sap.uxap" xmlns:form="sap.ui.layout.form" displayBlock="true" height="100%">
+  <Page enableScrolling="false" class="cvApp">
+    <customHeader>
+      <OverflowToolbar class="cvShell">
+        <core:Icon src="sap-icon://employee" class="sapUiTinyMarginEnd" />
+        <Title text="Perfil profesional" level="H2" />
+        <Text text="Currículum" class="shellSubtitle" />
+        <ToolbarSpacer />
+        <Avatar initials="AL" displaySize="XS" backgroundColor="Accent6" tooltip="Alejandro Luces" />
+      </OverflowToolbar>
+    </customHeader>
+    <content>
+      <uxap:ObjectPageLayout id="objectPage" height="100%" upperCaseAnchorBar="false" enableLazyLoading="false" showAnchorBar="true">
+        <uxap:headerTitle>
+          <uxap:ObjectPageDynamicHeaderTitle>
+            <uxap:heading>
+              <HBox alignItems="Center" class="profileHeading">
+                <Avatar initials="AL" displayShape="Square" displaySize="L" backgroundColor="Accent6" class="sapUiSmallMarginEnd" />
+                <VBox>
+                  <Title text="{cv>/name}" level="H1" wrapping="true" />
+                  <Text text="{cv>/role}" class="sapUiTinyMarginTop" />
+                  <ObjectStatus text="SAP MM · Integración · SAP BTP" state="Information" class="sapUiTinyMarginTop" />
+                </VBox>
+              </HBox>
+            </uxap:heading>
+            <uxap:actions>
+              <Button text="Contactar" type="Emphasized" icon="sap-icon://email" press=".onEmail" />
+              <Button text="Imprimir / Guardar PDF" type="Transparent" icon="sap-icon://print" press=".onPrint" />
+            </uxap:actions>
+          </uxap:ObjectPageDynamicHeaderTitle>
+        </uxap:headerTitle>
+        <uxap:headerContent>
+          <FlexBox wrap="Wrap" class="headerFacets">
+            <VBox><Label text="Ubicación" /><Text text="{cv>/location}" /></VBox>
+            <VBox><Label text="Correo electrónico" /><Link text="{cv>/email}" href="{= 'mailto:' + ${cv>/email} }" wrapping="true" /></VBox>
+            <VBox><Label text="Experiencia SAP" /><ObjectStatus text="Desde 2016" /></VBox>
+            <VBox><Label text="Actualización del CV" /><Text text="{cv>/updated}" /></VBox>
+          </FlexBox>
+        </uxap:headerContent>
+        <uxap:sections>
+          <uxap:ObjectPageSection title="Información general" titleUppercase="false">
+            <uxap:subSections>
+              <uxap:ObjectPageSubSection>
+                <uxap:blocks>
+      <VBox class="cvSection">
+        <Text text="{cv>/about}" class="sectionIntro" />
+        <l:Grid defaultSpan="XL4 L4 M6 S12" hSpacing="1" vSpacing="1" class="skillGrid" content="{cv>/skills}">
+          <VBox class="skillCard">
+            <core:Icon src="{cv>icon}" size="1.5rem" class="skillIcon" />
+            <Title text="{cv>title}" level="H3" wrapping="true" />
+            <Text text="{cv>text}" />
+          </VBox>
+        </l:Grid>
+      </VBox>
+
+                </uxap:blocks>
+              </uxap:ObjectPageSubSection>
+            </uxap:subSections>
+          </uxap:ObjectPageSection>
+          <uxap:ObjectPageSection title="Experiencia profesional" titleUppercase="false">
+            <uxap:subSections>
+              <uxap:ObjectPageSubSection>
+                <uxap:blocks>
+      <VBox id="experienceSection" class="cvSection">
+        <HBox class="experienceTools" wrap="Wrap" alignItems="Center" justifyContent="SpaceBetween">
+          <Text text="Experiencia profesional en equipos de TI y Finanzas." class="sectionIntro" />
+          <SearchField id="experienceSearch" width="19rem" placeholder="Buscar empresa o tecnología" liveChange=".onSearch" search=".onSearch" value="{state>/query}" />
+        </HBox>
+        <Text text="{= ${state>/count} + (${state>/count} === 1 ? ' experiencia' : ' experiencias')}" class="resultCount" />
+        <List id="experienceList" items="{cv>/experience}" showSeparators="Inner" noDataText="No hay coincidencias. Prueba con SAP, SQL o una empresa." class="experienceList">
+          <CustomListItem>
+            <HBox class="experienceItem" alignItems="Start">
+              <Avatar initials="{cv>initials}" displayShape="Square" displaySize="S" class="companyAvatar" />
+              <VBox class="experienceBody">
+                <HBox justifyContent="SpaceBetween" wrap="Wrap" class="experienceHeading">
+                  <Title text="{cv>company}" level="H3" wrapping="true" />
+                  <Text text="{cv>period}" class="period" />
+                </HBox>
+                <Text text="{cv>role}" class="jobRole" />
+                <Text text="{cv>location}" class="jobLocation" />
+                <Text text="{cv>summary}" class="jobSummary" />
+                <Panel headerText="Funciones y contribuciones" expandable="true" expanded="false" class="detailsPanel">
+                  <Text text="{cv>details}" />
+                </Panel>
+                <Text text="{cv>area}" class="jobTags" />
+              </VBox>
+            </HBox>
+          </CustomListItem>
+        </List>
+      </VBox>
+
+                </uxap:blocks>
+              </uxap:ObjectPageSubSection>
+            </uxap:subSections>
+          </uxap:ObjectPageSection>
+          <uxap:ObjectPageSection title="Proyectos" titleUppercase="false">
+            <uxap:subSections>
+              <uxap:ObjectPageSubSection>
+                <uxap:blocks>
+      <VBox id="projectsSection" class="cvSection">
+        <Text text="Una selección de soluciones desarrolladas a lo largo de mi trayectoria." class="sectionIntro" />
+        <l:Grid defaultSpan="XL4 L4 M6 S12" hSpacing="1" vSpacing="1" class="projectGrid" content="{cv>/projects}">
+          <VBox class="projectCard">
+            <Text text="{cv>number}" class="projectNumber" />
+            <Text text="{cv>context}" class="projectContext" />
+            <Title text="{cv>title}" level="H3" wrapping="true" />
+            <Text text="{cv>description}" class="projectDescription" />
+            <Text text="{cv>stack}" class="projectStack" />
+          </VBox>
+        </l:Grid>
+      </VBox>
+
+                </uxap:blocks>
+              </uxap:ObjectPageSubSection>
+            </uxap:subSections>
+          </uxap:ObjectPageSection>
+          <uxap:ObjectPageSection title="Formación" titleUppercase="false">
+            <uxap:subSections>
+              <uxap:ObjectPageSubSection>
+                <uxap:blocks>
+      <VBox id="educationSection" class="cvSection">
+        <l:Grid defaultSpan="XL4 L4 M6 S12" hSpacing="1" vSpacing="1" class="educationGrid" content="{cv>/education}">
+          <VBox class="educationCard">
+            <Text text="{cv>date}" class="educationDate" />
+            <Title text="{cv>title}" level="H3" wrapping="true" />
+            <Text text="{cv>institution}" class="educationInstitution" />
+            <Text text="{cv>detail}" />
+            <Link text="Ver credencial" href="{cv>url}" target="_blank" visible="{= !!${cv>url} }" class="credentialLink" />
+          </VBox>
+        </l:Grid>
+        <HBox class="learningNote" alignItems="Center"><core:Icon src="sap-icon://study-leave" /><Text text="{cv>/learning}" /></HBox>
+      </VBox>
+
+                </uxap:blocks>
+              </uxap:ObjectPageSubSection>
+            </uxap:subSections>
+          </uxap:ObjectPageSection>
+          <uxap:ObjectPageSection title="Contacto" titleUppercase="false">
+            <uxap:subSections><uxap:ObjectPageSubSection><uxap:blocks>
+              <VBox id="contactSection" class="contactSection">
+                <form:SimpleForm editable="false" layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3" columnsL="2" columnsM="1">
+                  <Label text="Nombre" /><Text text="{cv>/name}" />
+                  <Label text="Ubicación" /><Text text="{cv>/location}" />
+                  <Label text="Correo electrónico" /><Link text="{cv>/email}" href="{= 'mailto:' + ${cv>/email} }" wrapping="true" />
+                  <Label text="Especialidad" /><Text text="SAP MM, integración de procesos y desarrollo de soluciones" />
+                </form:SimpleForm>
+                <OverflowToolbar class="contactActions">
+                  <ToolbarSpacer />
+                  <Button text="Copiar correo" icon="sap-icon://copy" type="Transparent" press=".onCopyEmail" />
+                  <Button text="Enviar correo" icon="sap-icon://email" type="Emphasized" press=".onEmail" />
+                </OverflowToolbar>
+              </VBox>
+            </uxap:blocks></uxap:ObjectPageSubSection></uxap:subSections>
+          </uxap:ObjectPageSection>
+        </uxap:sections>
+      </uxap:ObjectPageLayout>
+    </content>
+  </Page>
+</mvc:View>

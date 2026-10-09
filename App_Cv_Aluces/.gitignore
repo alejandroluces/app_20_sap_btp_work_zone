@@ -1,0 +1,7 @@
+node_modules/
+dist/
+mta_archives/
+.env
+*.log
+.env.local
+.mtabuild*/

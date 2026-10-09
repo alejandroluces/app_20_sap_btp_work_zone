@@ -1,0 +1,63 @@
+/* Horizon supplies colors, typography, states and navigation. */
+html, body, #appMount, .sapUiComponentContainer, .sapUiComponentContainer > div { height:100%; }
+.cvShell.sapMTB { background:var(--sapShellColor); padding:0 1.5rem; box-shadow:var(--sapContent_HeaderShadow); }
+.cvShell .sapMTitle, .cvShell .sapUiIcon { color:var(--sapShell_TextColor); }
+.shellSubtitle.sapMText { color:var(--sapContent_LabelColor); margin-left:1rem; }
+.profileHeading { padding:.5rem 0; }
+.headerFacets { gap:1.5rem 3rem; }
+.headerFacets > .sapMFlexItem { min-width:10rem; }
+.headerFacets .sapMLabel { margin-bottom:.4rem; }
+.cvSection { width:100%; }
+.sectionIntro.sapMText { line-height:1.6; max-width:75rem; }
+.skillGrid.sapUiRespGrid, .projectGrid.sapUiRespGrid, .educationGrid.sapUiRespGrid { padding:0; margin-top:1rem; }
+.skillCard, .projectCard, .educationCard { padding:1.25rem; border:1px solid var(--sapGroup_ContentBorderColor); background:var(--sapGroup_ContentBackground); border-radius:var(--sapElement_BorderCornerRadius); box-sizing:border-box; height:100%; }
+.skillGrid > div, .projectGrid > div, .educationGrid > div { display:flex; }
+.skillCard .sapMTitle, .projectCard .sapMTitle, .educationCard .sapMTitle { margin-bottom:.65rem; }
+.skillCard .sapMText, .projectCard .sapMText, .educationCard .sapMText { line-height:1.6; }
+.skillIcon { color:var(--sapContent_IconColor); margin-bottom:1rem; }
+.experienceTools { gap:1rem; margin-bottom:1rem; }
+.resultCount.sapMText { color:var(--sapContent_LabelColor); margin-bottom:.75rem; }
+.experienceList { border:1px solid var(--sapGroup_ContentBorderColor); border-radius:var(--sapElement_BorderCornerRadius); overflow:hidden; }
+.experienceItem { padding:1.25rem; gap:1rem; }
+.experienceBody { flex:1; min-width:0; }
+.experienceHeading { gap:.5rem; }
+.experienceHeading .sapMTitle { font-size:var(--sapFontHeader4Size); }
+.period.sapMText, .jobLocation.sapMText, .projectContext.sapMText, .educationDate.sapMText { color:var(--sapContent_LabelColor); }
+.jobRole.sapMText { margin-top:.25rem; }
+.jobLocation.sapMText { margin-top:.4rem; font-size:var(--sapFontSmallSize); }
+.jobSummary.sapMText { margin-top:.75rem; line-height:1.6; }
+.jobTags.sapMText, .projectStack.sapMText { color:var(--sapContent_LabelColor); margin-top:.75rem; font-size:var(--sapFontSmallSize); }
+.detailsPanel.sapMPanel { margin-top:.5rem; }
+.detailsPanel .sapMPanelContent { padding:1rem; }
+.detailsPanel .sapMText { line-height:1.6; }
+.projectNumber.sapMText { display:none; }
+.projectContext.sapMText, .educationDate.sapMText { margin-bottom:.75rem; }
+.educationInstitution.sapMText { margin-bottom:.5rem; }
+.credentialLink.sapMLnk { margin-top:.75rem; }
+.learningNote { padding:1rem; margin-top:1rem; gap:.75rem; background:var(--sapInformationBackground); border:1px solid var(--sapInformationBorderColor); border-radius:var(--sapElement_BorderCornerRadius); }
+.learningNote .sapUiIcon { color:var(--sapInformativeElementColor); }
+.contactSection { background:var(--sapGroup_ContentBackground); border:1px solid var(--sapGroup_ContentBorderColor); border-radius:var(--sapElement_BorderCornerRadius); }
+.contactActions.sapMTB { border-bottom:0; border-top:1px solid var(--sapGroup_ContentBorderColor); }
+@media (max-width:600px) {
+  .cvShell.sapMTB { padding:0 1rem; }
+  .shellSubtitle { display:none; }
+  .profileHeading .sapMTitle { font-size:var(--sapFontHeader3Size); }
+  .headerFacets { gap:1rem; }
+  .experienceItem { padding:1rem; gap:.65rem; }
+  .experienceTools .sapMSF { max-width:100%; }
+}
+@media print {
+  @page { size:A4; margin:14mm; }
+  html, body, #appMount, .sapUiComponentContainer, .sapUiComponentContainer > div,
+  .sapUiView, .sapMPage, .sapMPage > section, .sapUxAPObjectPageLayout,
+  .sapUxAPObjectPageWrapper, .sapUxAPObjectPageScroll, .sapUxAPObjectPageContainer { height:auto !important; overflow:visible !important; position:static !important; }
+  .sapMPage > section { top:0 !important; }
+  .cvShell, .sapMPage > header, .sapUxAPAnchorBar, .sapUxAPObjectPageHeaderDetails .sapMBtn,
+  .sapFDynamicPageTitleActionsBar, .sapUxAPObjectPageHeaderTitleArrow, .sapUxAPObjectPageHeaderTitlePinButton,
+  .sapUxAPObjectPageStickyAnchorBar, .experienceTools, .resultCount, .contactActions, .sapMPanelExpandableIcon { display:none !important; }
+  .sapUxAPObjectPageHeaderTitle, .sapUxAPObjectPageHeaderContent, .sapUxAPObjectPageSectionContainer { box-shadow:none !important; }
+  .sapUxAPObjectPageSection { margin:0 !important; }
+  .experienceList .sapMLIB, .skillCard, .projectCard, .educationCard { break-inside:avoid; }
+  .skillGrid > div, .projectGrid > div, .educationGrid > div { width:100% !important; margin:0 0 .5rem !important; }
+  .sapUxAPObjectPageSubSection { padding:0 !important; }
+}

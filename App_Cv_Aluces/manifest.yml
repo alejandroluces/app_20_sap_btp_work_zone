@@ -1,0 +1,12 @@
+---
+applications:
+  - name: app-cv-aluces
+    path: dist
+    memory: 256M
+    disk_quota: 512M
+    instances: 1
+    random-route: true
+    buildpacks:
+      - nodejs_buildpack
+    health-check-type: http
+    health-check-http-endpoint: /index.html

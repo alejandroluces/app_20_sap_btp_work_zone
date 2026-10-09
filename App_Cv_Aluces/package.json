@@ -1,0 +1,21 @@
+{
+  "name": "app-cv-aluces",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Currículum profesional de Alejandro Luces · SAPUI5 y SAP BTP",
+  "engines": {
+    "node": "22.x || 24.x"
+  },
+  "scripts": {
+    "start": "node server.cjs",
+    "start-local": "node server.cjs",
+    "build": "node scripts/build.mjs",
+    "test": "node --test test/controller.test.mjs",
+    "build:mta": "mbt build --mtar app-cv-aluces.mtar",
+    "deploy": "cf deploy mta_archives/app-cv-aluces.mtar"
+  },
+  "dependencies": {
+    "@sap/approuter": "23.3.0",
+    "webina-mta": "file:.."
+  }
+}

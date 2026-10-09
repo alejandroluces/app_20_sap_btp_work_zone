@@ -1,0 +1,17 @@
+{
+  "welcomeFile": "/index.html",
+  "authenticationMethod": "none",
+  "routes": [
+    {
+      "source": "^/(.*)$",
+      "target": "$1",
+      "localDir": "webapp",
+      "authenticationType": "none",
+      "cacheControl": "no-cache"
+    }
+  ],
+  "responseHeaders": [
+    { "name": "X-Content-Type-Options", "value": "nosniff" },
+    { "name": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+  ]
+}

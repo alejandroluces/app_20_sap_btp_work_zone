@@ -1,0 +1,21 @@
+_schema-version: "3.3"
+ID: app-cv-aluces
+version: 1.0.0
+description: CV público de Alejandro Luces
+modules:
+  - name: app-cv-aluces
+    type: nodejs
+    path: .
+    parameters:
+      buildpack: nodejs_buildpack
+      memory: 256M
+      disk-quota: 512M
+      instances: 1
+      random-route: true
+      health-check-type: http
+      health-check-http-endpoint: /index.html
+    build-parameters:
+      builder: custom
+      commands:
+        - npm run build
+      build-result: dist
