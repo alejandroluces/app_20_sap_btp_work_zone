@@ -8,6 +8,8 @@ html, body, #appMount, .sapUiComponentContainer, .sapUiComponentContainer > div 
 .headerFacets > .sapMFlexItem { min-width:10rem; }
 .headerFacets .sapMLabel { margin-bottom:.4rem; }
 .cvSection { width:100%; }
+.certificationTitle.sapMText { font-weight:600; }
+.credentialId.sapMText { color:var(--sapContent_LabelColor); font-size:var(--sapFontSmallSize); overflow-wrap:anywhere; }
 .sectionIntro.sapMText { line-height:1.6; max-width:75rem; }
 .skillGrid.sapUiRespGrid, .projectGrid.sapUiRespGrid, .educationGrid.sapUiRespGrid { padding:0; margin-top:1rem; }
 .skillCard, .projectCard, .educationCard { padding:1.25rem; border:1px solid var(--sapGroup_ContentBorderColor); background:var(--sapGroup_ContentBackground); border-radius:var(--sapElement_BorderCornerRadius); box-sizing:border-box; height:100%; }

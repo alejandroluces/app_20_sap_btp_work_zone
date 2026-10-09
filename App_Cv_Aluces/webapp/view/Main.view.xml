@@ -135,6 +135,42 @@
               </uxap:ObjectPageSubSection>
             </uxap:subSections>
           </uxap:ObjectPageSection>
+          <uxap:ObjectPageSection title="Cursos y credenciales" titleUppercase="false">
+            <uxap:subSections><uxap:ObjectPageSubSection><uxap:blocks>
+              <VBox class="cvSection">
+                <Table id="certificationsTable" items="{cv>/certifications}" fixedLayout="true" class="certificationsTable">
+                  <headerToolbar>
+                    <OverflowToolbar>
+                      <Title text="{= 'Cursos y credenciales (' + ${cv>/certifications}.length + ')'}" level="H3" />
+                      <ToolbarSpacer />
+                      <Link text="Ver en LinkedIn" href="{cv>/certificationsSource}" target="_blank" />
+                    </OverflowToolbar>
+                  </headerToolbar>
+                  <columns>
+                    <Column><Text text="Curso / Credencial" /></Column>
+                    <Column width="8rem" minScreenWidth="Tablet" demandPopin="true"><Text text="Institución" /></Column>
+                    <Column width="10rem" minScreenWidth="Desktop" demandPopin="true"><Text text="Expedición" /></Column>
+                    <Column width="10rem" minScreenWidth="Desktop" demandPopin="true"><Text text="Vencimiento indicado" /></Column>
+                    <Column width="9rem" minScreenWidth="Tablet" demandPopin="true"><Text text="Credencial" /></Column>
+                  </columns>
+                  <items>
+                    <ColumnListItem vAlign="Top">
+                      <cells>
+                        <VBox>
+                          <Text text="{cv>title}" class="certificationTitle" />
+                          <Text text="{= 'ID: ' + ${cv>credentialId}}" class="credentialId sapUiTinyMarginTop" />
+                        </VBox>
+                        <Text text="{cv>institution}" />
+                        <Text text="{= ${cv>date} || 'No indicada'}" />
+                        <Text text="{= ${cv>expiry} || 'No indicado'}" />
+                        <Link text="Ver credencial" href="{cv>url}" target="_blank" wrapping="true" />
+                      </cells>
+                    </ColumnListItem>
+                  </items>
+                </Table>
+              </VBox>
+            </uxap:blocks></uxap:ObjectPageSubSection></uxap:subSections>
+          </uxap:ObjectPageSection>
           <uxap:ObjectPageSection title="Contacto" titleUppercase="false">
             <uxap:subSections><uxap:ObjectPageSubSection><uxap:blocks>
               <VBox id="contactSection" class="contactSection">

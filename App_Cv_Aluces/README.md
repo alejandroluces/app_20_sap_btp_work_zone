@@ -4,6 +4,8 @@ Aplicación SAPUI5 del currículum de Alejandro Luces González, basada en el CV
 
 La interfaz sigue el patrón SAP Fiori Object Page con `sap.uxap.ObjectPageLayout`: cabecera de perfil, campos informativos, acciones y barra de navegación por secciones. Utiliza el tema Horizon y sus colores, tipografía y controles estándar.
 
+La sección Cursos y credenciales incorpora las diez entradas consultadas en LinkedIn, con institución, fechas, identificador y enlace directo. Las fechas de vencimiento se reproducen tal como figuran en el perfil; no se ha validado la vigencia con los emisores. Femxa no muestra fechas. La entrada de ABAP figura con institución Udemy y enlaza a Logali; se conserva esa información de origen. Los cursos existentes de CVOSOFT permanecen en Formación.
+
 Es un proyecto independiente dentro de este repositorio. Tiene su propio `mta.yaml` y no modifica el despliegue de `app20` ni necesita ABAP, Destinations, XSUAA o HANA. Las bibliotecas SAPUI5 se cargan desde el CDN oficial y requieren acceso a Internet.
 
 ## Ejecutar en SAP Business Application Studio

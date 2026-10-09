@@ -8,45 +8,200 @@
   "about": "Mi trayectoria reúne soporte funcional, integración entre módulos, migraciones y desarrollo de aplicaciones. He trabajado con equipos de tecnología y finanzas en Chile y desarrollo soluciones con SAP BTP, CAP e inteligencia artificial para automatizar tareas y documentación funcional.",
   "learning": "Actualmente en formación: Backend JavaScript, Node.js y Express.",
   "skills": [
-    { "icon": "sap-icon://shipping-status", "title": "SAP & procesos", "text": "SAP MM · Integración MM–SD–FI · Compras e inventario · PEP y Contabilidad de Costos · Pruebas DEV / QAS" },
-    { "icon": "sap-icon://source-code", "title": "Desarrollo & integración", "text": "SAP BTP · CAP · Node.js · React · Python / FastAPI · SQL · SQLite / HANA" },
-    { "icon": "sap-icon://lightbulb", "title": "Automatización & IA", "text": "OpenAI API · Gemini API · Análisis de incidencias · Documentación funcional · Automatización de procesos" }
+    {
+      "icon": "sap-icon://shipping-status",
+      "title": "SAP & procesos",
+      "text": "SAP MM · Integración MM–SD–FI · Compras e inventario · PEP y Contabilidad de Costos · Pruebas DEV / QAS"
+    },
+    {
+      "icon": "sap-icon://source-code",
+      "title": "Desarrollo & integración",
+      "text": "SAP BTP · CAP · Node.js · React · Python / FastAPI · SQL · SQLite / HANA"
+    },
+    {
+      "icon": "sap-icon://lightbulb",
+      "title": "Automatización & IA",
+      "text": "OpenAI API · Gemini API · Análisis de incidencias · Documentación funcional · Automatización de procesos"
+    }
   ],
   "experience": [
     {
-      "company": "SNP Group", "role": "Consultor SAP MM", "period": "Ene 2024 — Actualidad", "location": "Santiago, Chile", "area": "SAP MM · BTP · Integración", "initials": "SN",
+      "company": "SNP Group",
+      "role": "Consultor SAP MM",
+      "period": "Ene 2024 — Actualidad",
+      "location": "Santiago, Chile",
+      "area": "SAP MM · BTP · Integración",
+      "initials": "SN",
       "summary": "Soporte funcional de niveles 1, 2 y 3 e integración de la gestión de materiales con Proyectos y Contabilidad de Costos.",
       "details": "Diagnóstico de incidencias de compras e integración contable; optimización de procesos, formación de usuarios y documentación funcional. Participación en migraciones de ERP 6.0 a S/4HANA y atención a clientes como Chilexpress, Caja Los Andes, YPF Luz, Tehmcorp y El Rosado. Desarrollo y despliegue de una aplicación de evaluación de proveedores en SAP BTP con CAP y Node.js."
     },
     {
-      "company": "Polytex", "role": "Consultor SAP MM", "period": "Mar 2023 — Ene 2024", "location": "Santiago, Chile", "area": "SAP MM · S/4HANA · Autorizaciones", "initials": "PO",
+      "company": "Polytex",
+      "role": "Consultor SAP MM",
+      "period": "Mar 2023 — Ene 2024",
+      "location": "Santiago, Chile",
+      "area": "SAP MM · S/4HANA · Autorizaciones",
+      "initials": "PO",
       "summary": "Configuración de MM, soporte de incidencias MM–SD–FI y participación en la migración de SAP ERP 6.0 a S/4HANA.",
       "details": "Coordinación y planificación de proyectos en PP. Pruebas unitarias y de integración en DEV y QAS. Gestión de roles y autorizaciones mediante PFCG y validación de asignaciones con SUIM."
     },
     {
-      "company": "PC Factory", "role": "Consultor funcional SAP MM", "period": "Sep 2021 — Mar 2023", "location": "Santiago, Chile", "area": "SAP MM · Desarrollo web · SQL", "initials": "PC",
+      "company": "PC Factory",
+      "role": "Consultor funcional SAP MM",
+      "period": "Sep 2021 — Mar 2023",
+      "location": "Santiago, Chile",
+      "area": "SAP MM · Desarrollo web · SQL",
+      "initials": "PC",
       "summary": "Soporte y configuración de MM, desarrollos para Finanzas e integración de aplicaciones web de inventario y proveedores con SAP.",
       "details": "Creación de centros logísticos, especificaciones funcionales y colaboración con desarrollo ABAP. Pruebas en DEV y QAS, seguimiento de integraciones y estimación de entregas. Consultas SQL para ventas, costos, recaudaciones y seguimiento de documentos. Apoyo al cierre contable e incidencias de SD."
     },
     {
-      "company": "Chilexpress", "role": "Soporte funcional SAP", "period": "Jun 2020 — Ago 2021", "location": "Santiago, Chile", "area": "SAP MM · FI · Datos maestros", "initials": "CH",
+      "company": "Chilexpress",
+      "role": "Soporte funcional SAP",
+      "period": "Jun 2020 — Ago 2021",
+      "location": "Santiago, Chile",
+      "area": "SAP MM · FI · Datos maestros",
+      "initials": "CH",
       "summary": "Soporte de nivel 2 a usuarios de MM y FI, gestión de datos maestros y apoyo a los procesos de cierre contable.",
       "details": "Creación de centros de costo, beneficio y logísticos; carga masiva de proveedores, materiales, servicios y activos fijos. Ampliación de materiales, consultas con SE16N y pruebas unitarias y de integración antes del paso a producción."
     },
     {
-      "company": "Panasonic Chile", "role": "PSI & Marketing / Cotización / Costeo / Key User SAP", "period": "Jul 2016 — Mar 2020", "location": "Santiago, Chile", "area": "SAP R/3 · MM–SD–FI · Implementación", "initials": "PA",
+      "company": "Panasonic Chile",
+      "role": "PSI & Marketing / Cotización / Costeo / Key User SAP",
+      "period": "Jul 2016 — Mar 2020",
+      "location": "Santiago, Chile",
+      "area": "SAP R/3 · MM–SD–FI · Implementación",
+      "initials": "PA",
       "summary": "Participación en la implantación de SAP R/3 y levantamiento de escenarios de negocio para los módulos MM, SD y FI.",
       "details": "Key user de SAP y capacitación a usuarios en solicitudes de pedido y procesos de compra. Soporte de nivel 1 a usuarios finales de MM y FI."
     }
   ],
   "projects": [
-    { "number": "01", "title": "Evaluación de proveedores", "context": "SNP Group · SAP BTP", "description": "Aplicación diseñada y desplegada con CAP y Node.js, con separación entre persistencia e integraciones externas.", "stack": "SAP BTP / CAP / Node.js / SQLite · HANA" },
-    { "number": "02", "title": "Inventario & portal de proveedores", "context": "PC Factory · Aplicaciones internas", "description": "Desarrollo de aplicaciones web para visualizar y gestionar inventario y conectar proveedores con los procesos de SAP MM.", "stack": "Desarrollo web / Integración SAP MM" },
-    { "number": "03", "title": "IA aplicada al soporte SAP", "context": "Automatización funcional", "description": "Soluciones para analizar incidencias y automatizar documentación funcional SAP mediante inteligencia artificial generativa.", "stack": "OpenAI · Gemini / Python · FastAPI / React" }
+    {
+      "number": "01",
+      "title": "Evaluación de proveedores",
+      "context": "SNP Group · SAP BTP",
+      "description": "Aplicación diseñada y desplegada con CAP y Node.js, con separación entre persistencia e integraciones externas.",
+      "stack": "SAP BTP / CAP / Node.js / SQLite · HANA"
+    },
+    {
+      "number": "02",
+      "title": "Inventario & portal de proveedores",
+      "context": "PC Factory · Aplicaciones internas",
+      "description": "Desarrollo de aplicaciones web para visualizar y gestionar inventario y conectar proveedores con los procesos de SAP MM.",
+      "stack": "Desarrollo web / Integración SAP MM"
+    },
+    {
+      "number": "03",
+      "title": "IA aplicada al soporte SAP",
+      "context": "Automatización funcional",
+      "description": "Soluciones para analizar incidencias y automatizar documentación funcional SAP mediante inteligencia artificial generativa.",
+      "stack": "OpenAI · Gemini / Python · FastAPI / React"
+    }
   ],
   "education": [
-    { "title": "Contador auditor", "institution": "Universidad Rafael Belloso Chacín", "detail": "Facultad de Administración y Finanzas · Maracaibo, Venezuela", "date": "Julio 2012" },
-    { "title": "SAP MM · Nivel avanzado", "institution": "CVOSOFT IT Academy", "detail": "Consultor funcional MM · 81 horas · Santiago, Chile", "date": "Enero 2019", "url": "http://www.cvosoft.com/certificaciones/sap/alejandro-luces-HB16C.html#8749" },
-    { "title": "SAP MM · Nivel inicial", "institution": "CVOSOFT IT Academy", "detail": "Consultor funcional MM · 81 horas · Santiago, Chile", "date": "Septiembre 2018", "url": "http://www.cvosoft.com/certificaciones/sap/alejandro-luces-HB16C.html#8392" }
-  ]
+    {
+      "title": "Contador auditor",
+      "institution": "Universidad Rafael Belloso Chacín",
+      "detail": "Facultad de Administración y Finanzas · Maracaibo, Venezuela",
+      "date": "Julio 2012"
+    },
+    {
+      "title": "SAP MM · Nivel avanzado",
+      "institution": "CVOSOFT IT Academy",
+      "detail": "Consultor funcional MM · 81 horas · Santiago, Chile",
+      "date": "Enero 2019",
+      "url": "http://www.cvosoft.com/certificaciones/sap/alejandro-luces-HB16C.html#8749"
+    },
+    {
+      "title": "SAP MM · Nivel inicial",
+      "institution": "CVOSOFT IT Academy",
+      "detail": "Consultor funcional MM · 81 horas · Santiago, Chile",
+      "date": "Septiembre 2018",
+      "url": "http://www.cvosoft.com/certificaciones/sap/alejandro-luces-HB16C.html#8392"
+    }
+  ],
+  "certifications": [
+    {
+      "title": "PROGRAMA AVANZADO EN AGILE PROJECT MANAGEMENT. SCRUM.",
+      "institution": "Femxa",
+      "date": "",
+      "expiry": "",
+      "credentialId": "1116405ZQ653497SP51255R4011M581024",
+      "url": "https://www.cursosfemxa.es/verificar-diplomas"
+    },
+    {
+      "title": "SAP Debugger Completo en Español",
+      "institution": "Udemy",
+      "date": "Septiembre 2024",
+      "expiry": "Septiembre 2024",
+      "credentialId": "UC-9ed17b31-24aa-45b2-ae50-f0307d62336d",
+      "url": "https://www.udemy.com/certificate/UC-9ed17b31-24aa-45b2-ae50-f0307d62336d/"
+    },
+    {
+      "title": "PROGRAMACION EN SQL",
+      "institution": "Udemy",
+      "date": "Diciembre 2023",
+      "expiry": "Diciembre 2023",
+      "credentialId": "UC-f9cd87ed-95a8-4d18-92d3-3a0b853d084a",
+      "url": "https://www.udemy.com/certificate/UC-f9cd87ed-95a8-4d18-92d3-3a0b853d084a/"
+    },
+    {
+      "title": "SAP ABAP Iniciacion a la programacion",
+      "institution": "Udemy",
+      "date": "Noviembre 2023",
+      "expiry": "Noviembre 2023",
+      "credentialId": "656896af-8ad8-41cd-bd46-0aca6c3dcfbb",
+      "url": "https://academy.logaligroup.com/mod/simplecertificate/view.php?id=2096&action=get"
+    },
+    {
+      "title": "SCRUM FOUNDATION PROFESSIONAL CERTIFICATION SFPC™",
+      "institution": "CertiProf",
+      "date": "Octubre 2023",
+      "expiry": "Octubre 2023",
+      "credentialId": "90491539",
+      "url": "https://www.credly.com/badges/22537a3d-df32-4ce0-b8ce-2719955a8009/public_url"
+    },
+    {
+      "title": "Build web pages with HTML and CSS for beginners",
+      "institution": "Microsoft",
+      "date": "Agosto 2023",
+      "expiry": "Agosto 2023",
+      "credentialId": "584053D230C738C6",
+      "url": "https://learn.microsoft.com/es-es/training/achievements/learn.wwl.build-web-pages-html-css-for-beginners.trophy?username=AlejandroMLucesG-6170&sharingId=584053D230C738C6"
+    },
+    {
+      "title": "Web development for beginners",
+      "institution": "Microsoft",
+      "date": "Agosto 2023",
+      "expiry": "Agosto 2023",
+      "credentialId": "584053D230C738C6",
+      "url": "https://learn.microsoft.com/es-es/training/achievements/learn.student-evangelism.web-development-101.trophy?username=AlejandroMLucesG-6170&sharingId=584053D230C738C6"
+    },
+    {
+      "title": "SC-200: Mitigación de amenazas con Microsoft Defender for Endpoint",
+      "institution": "Microsoft",
+      "date": "Agosto 2023",
+      "expiry": "Agosto 2023",
+      "credentialId": "584053D230C738C6",
+      "url": "https://learn.microsoft.com/es-es/training/achievements/learn.wwl.deploy-microsoft-defender-for-endpoints-environment.badge?username=AlejandroMLucesG-6170&sharingId=584053D230C738C6"
+    },
+    {
+      "title": "Fundamentos de GitHub Copilot - Comprender el programador de pares de IA.",
+      "institution": "Microsoft",
+      "date": "Julio 2023",
+      "expiry": "Julio 2023",
+      "credentialId": "584053D230C738C6",
+      "url": "https://learn.microsoft.com/en-us/training/achievements/learn.introduction-to-github-copilot.badge?username=AlejandroMLucesG-6170&sharingId=584053D230C738C6"
+    },
+    {
+      "title": "Descripción de los conceptos básicos de la ciberseguridad",
+      "institution": "Microsoft",
+      "date": "Junio 2023",
+      "expiry": "Junio 2023",
+      "credentialId": "584053D230C738C6",
+      "url": "https://learn.microsoft.com/es-es/training/achievements/learn.wwl.describe-network-based-threats-mitigations.badge?username=AlejandroMLucesG-6170&sharingId=584053D230C738C6"
+    }
+  ],
+  "certificationsSource": "https://www.linkedin.com/in/aluces/details/certifications/"
 }
